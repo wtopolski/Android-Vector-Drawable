@@ -1,5 +1,6 @@
 package com.github.wtopolski.androidvectordrawable;
 
+import android.content.Intent;
 import android.graphics.Bitmap;
 import android.graphics.Canvas;
 import android.graphics.Color;
@@ -35,6 +36,10 @@ public class MainActivity extends AppCompatActivity {
     public void onSelectMe(View view) {
         CheckBox checkbox = (CheckBox) view;
         Toast.makeText(MainActivity.this, "" + checkbox.isChecked(), Toast.LENGTH_SHORT).show();
+    }
+
+    public void onClick(View view) {
+        startActivity(new Intent(this, FaceActivity.class));
     }
 
     private Bitmap generateIcon() {
