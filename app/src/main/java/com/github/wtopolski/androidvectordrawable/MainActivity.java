@@ -6,11 +6,11 @@ import android.graphics.Color;
 import android.graphics.Paint;
 import android.graphics.Typeface;
 import android.graphics.drawable.Drawable;
-import android.support.graphics.drawable.VectorDrawableCompat;
 import android.support.v4.content.ContextCompat;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatDelegate;
+import android.support.v7.content.res.AppCompatResources;
 import android.util.DisplayMetrics;
 import android.view.View;
 import android.widget.CheckBox;
@@ -45,18 +45,12 @@ public class MainActivity extends AppCompatActivity {
         Bitmap bitmap = Bitmap.createBitmap(imageSize, imageSize, Bitmap.Config.ARGB_8888);
         Canvas canvas = new Canvas(bitmap);
 
-        VectorDrawableCompat vectorDrawableCompat = VectorDrawableCompat.create(getResources(), R.drawable.ic_custom, getTheme());
-        Drawable vectorDrawable = null;
-
-        if (vectorDrawableCompat != null) {
-            vectorDrawable = vectorDrawableCompat.getCurrent();
-        }
+        Drawable vectorDrawable = AppCompatResources.getDrawable(getApplicationContext(), R.drawable.ic_custom);
 
         if (vectorDrawable != null) {
             int resize = (int) (fontSize * metrics.density);
             vectorDrawable.setBounds(resize/2, 0, canvas.getWidth() - resize/2, canvas.getHeight() - resize);
             vectorDrawable.draw(canvas);
-
         } else {
             canvas.drawColor(Color.RED);
         }
