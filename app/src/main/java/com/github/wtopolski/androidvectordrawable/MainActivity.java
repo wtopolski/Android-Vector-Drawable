@@ -1,10 +1,12 @@
 package com.github.wtopolski.androidvectordrawable;
 
 import android.graphics.Bitmap;
-import android.graphics.BitmapFactory;
 import android.graphics.Canvas;
+import android.graphics.Color;
 import android.graphics.Paint;
 import android.graphics.Typeface;
+import android.graphics.drawable.Drawable;
+import android.support.graphics.drawable.VectorDrawableCompat;
 import android.support.v4.content.ContextCompat;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
@@ -36,25 +38,37 @@ public class MainActivity extends AppCompatActivity {
     }
 
     private Bitmap generateIcon() {
-        DisplayMetrics metrics = getApplicationContext().getResources().getDisplayMetrics();
+        DisplayMetrics metrics = getResources().getDisplayMetrics();
 
-        Bitmap bitmap = BitmapFactory.decodeResource(getResources(), R.drawable.ic_custom);
+        int fontSize = 16;
+        int imageSize = (int) (64 * metrics.density);
+        Bitmap bitmap = Bitmap.createBitmap(imageSize, imageSize, Bitmap.Config.ARGB_8888);
+        Canvas canvas = new Canvas(bitmap);
 
-        Bitmap alteredBitmap = Bitmap.createBitmap(bitmap.getWidth(), bitmap.getHeight(), bitmap.getConfig());
+        VectorDrawableCompat vectorDrawableCompat = VectorDrawableCompat.create(getResources(), R.drawable.ic_custom, getTheme());
+        Drawable vectorDrawable = null;
 
-        Canvas canvas = new Canvas(alteredBitmap);
-        canvas.drawBitmap(bitmap, 0, -8, new Paint());
+        if (vectorDrawableCompat != null) {
+            vectorDrawable = vectorDrawableCompat.getCurrent();
+        }
+
+        if (vectorDrawable != null) {
+            int resize = (int) (fontSize * metrics.density);
+            vectorDrawable.setBounds(resize/2, 0, canvas.getWidth() - resize/2, canvas.getHeight() - resize);
+            vectorDrawable.draw(canvas);
+
+        } else {
+            canvas.drawColor(Color.RED);
+        }
 
         Paint paintText = new Paint();
         paintText.setAntiAlias(true);
         paintText.setTextAlign(Paint.Align.CENTER);
         paintText.setColor(ContextCompat.getColor(this, R.color.colorBackground));
-        paintText.setTextSize((int) (7 * metrics.density));
+        paintText.setTextSize((int) (fontSize * metrics.density));
         paintText.setTypeface(Typeface.DEFAULT_BOLD);
-        canvas.drawText("JOHN", bitmap.getWidth() / 2f, bitmap.getHeight() / 1.1f, paintText);
+        canvas.drawText("JOHN", bitmap.getWidth() / 2f, bitmap.getHeight() - 2*(metrics.density), paintText);
 
-        bitmap.recycle();
-
-        return alteredBitmap;
+        return bitmap;
     }
 }
