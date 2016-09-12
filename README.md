@@ -10,7 +10,7 @@ Density:
 - **xxhdpi**	Resources for extra-extra-high-density (xxhdpi) screens (~480dpi).
 - **xxxhdpi**	Resources for extra-extra-extra-high-density (xxxhdpi) uses (~640dpi).
 
-![alt text](https://github.com/wtopolski/android-vector-drawable/blob/readme/docs/image1_0.png)
+![alt text](https://github.com/wtopolski/android-vector-drawable/blob/master/docs/image1_0.png)
 
 Every time when we want to change colors of app we need to generate all images again.
 
@@ -26,7 +26,7 @@ New colors:
 
 Before             |  After
 :-------------------------:|:-------------------------:
-![](https://github.com/wtopolski/android-vector-drawable/blob/readme/docs/image1_1.png)  |  ![](https://github.com/wtopolski/android-vector-drawable/blob/readme/docs/image1_2.png)
+![](https://github.com/wtopolski/android-vector-drawable/blob/master/docs/image1_1.png)  |  ![](https://github.com/wtopolski/android-vector-drawable/blob/master/docs/image1_2.png)
 
 ## Step 2: The simplest way of vector drawable
 
@@ -48,11 +48,11 @@ Example:
 </vector>
 ~~~
 
-![alt text](https://github.com/wtopolski/android-vector-drawable/blob/readme/docs/image2_1.png)
+![alt text](https://github.com/wtopolski/android-vector-drawable/blob/master/docs/image2_1.png)
 
 Screen after updates:
 
-![alt text](https://github.com/wtopolski/android-vector-drawable/blob/readme/docs/image2_0.png)
+![alt text](https://github.com/wtopolski/android-vector-drawable/blob/master/docs/image2_0.png)
 
 Problems:
 - We need to explicitly set color of path `android:fillColor="#ff000"`. Expresions like `android:fillColor="@color/something"` works only on Lollipop and above.
@@ -154,7 +154,7 @@ After above changes, let's again change color of app:
 
 Before             |  After
 :-------------------------:|:-------------------------:
-![](https://github.com/wtopolski/android-vector-drawable/blob/readme/docs/image2_0.png)  |  ![](https://github.com/wtopolski/android-vector-drawable/blob/readme/docs/image3_0.png)
+![](https://github.com/wtopolski/android-vector-drawable/blob/master/docs/image2_0.png)  |  ![](https://github.com/wtopolski/android-vector-drawable/blob/master/docs/image3_0.png)
 
 
 ## Appendix: Complex vector file
@@ -198,7 +198,7 @@ Before             |  After
 </vector>
 ~~~
 
-![](https://github.com/wtopolski/android-vector-drawable/blob/readme/docs/image4_0.png)
+![](https://github.com/wtopolski/android-vector-drawable/blob/master/docs/image4_0.png)
 
 ## Links
 - [Supporting Multiple Screens](https://developer.android.com/guide/practices/screens_support.html)
