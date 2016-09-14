@@ -54,6 +54,8 @@ Screen after updates:
 
 ![alt text](https://github.com/wtopolski/android-vector-drawable/blob/master/docs/image2_0.png)
 
+It is worth highlight that Git works better with text files then with binary file.
+
 Problems:
 - We need to explicitly set color of path `android:fillColor="#ff000"`. Expresions like `android:fillColor="@color/something"` works only on Lollipop and above.
 - Gradle still generates set of drawables for different DPI screens.
@@ -123,7 +125,7 @@ Gradle still generates set of drawables for different DPI screens.
 
 **Solution**
 
-No PNG files are generated at all. It is worth highlight that Git works better with text files then with binary file.
+No PNG files are generated at all.
 
 ### Problem
 
