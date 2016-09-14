@@ -61,7 +61,7 @@ Problems:
 
 ## Step 3: Complex way for vector drawables
 
-Available since `buildToolsVersion "23.4.0"` and above
+Available since `buildToolsVersion "23.4.0"`+
 
 **build.gradle**
 ~~~
